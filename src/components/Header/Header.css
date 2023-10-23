@@ -1,0 +1,226 @@
+.header_type_background {
+  background-color: #f3c1f8;
+}
+
+.header__container {
+  margin: 0 auto;
+  padding: 16px 71px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 1280px;
+  align-items: center;
+}
+
+.header__link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3px;
+  color: #000000;
+  transition: opacity 0.3s;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+}
+
+.header__logo {
+  display: block;
+  height: 38px;
+  width: 38px;
+}
+
+.header__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+}
+
+.header__link_type_login {
+  padding: 8px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.header__link_type_login:hover {
+  opacity: 0.7;
+}
+
+.header__button-burger {
+  background-image: url(../../images/icon__COLOR_icon-main.svg);
+  width: 42px;
+  height: 39px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.3s;
+  background-size: 44px 43px;
+  cursor: pointer;
+}
+
+.header__button-burger:hover {
+  opacity: 0.7;
+}
+
+.header__mobile-navigation {
+  display: flex;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  justify-content: flex-end;
+  visibility: hidden;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  z-index: 2;
+}
+
+.header__mobile-navigation_active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header__mobile-container {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  background-color: #fff;
+}
+
+.header__button-exit {
+  background-image: url(../../images/Group.svg);
+  border: none;
+  background-repeat: no-repeat;
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-color: transparent;
+  transition: opacity 0.3s;
+  align-self: flex-end;
+  margin: 22.4px 22.4px 105.44px;
+  cursor: pointer;
+}
+
+.header__button-exit:hover {
+  opacity: 0.7;
+}
+
+.header__mobile-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.header__link-container {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-left: 30px;
+}
+
+.header__link-container_type_mobile {
+  padding-left: 0;
+  margin: 0 auto;
+  margin-top: auto;
+  padding-bottom: 49px;
+}
+
+.header__profile-icon {
+  background-image: url(../../images/icon.svg);
+  width: 30px;
+  height: 30px;
+  background-size: 10.383px 10.669px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(249, 249, 249, 1);
+  border-radius: 6px;
+}
+
+.header__list_type_auth {
+  gap: 20px;
+  align-items: center;
+}
+
+.header__profile-icon_type_main {
+  background-image: url(../../images/icon1.svg);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.header__link_type_auth {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding: 18px calc(14px + (30 - 14) * (100vw - 320px) / (767 - 320));
+  }
+
+  .header__link {
+    font-size: calc(10px + (12 - 10) * (100vw - 320px) / (767 - 320));
+    font-weight: 500;
+  }
+
+  .header__link_type_login {
+    padding: calc(5px + (8 - 5) * (100vw - 320px) / (767 - 320))
+      calc(12px + (20 - 12) * (100vw - 320px) / (767 - 320));
+  }
+
+  .header__list {
+    gap: calc(14px + (30 - 14) * (100vw - 320px) / (767 - 320));
+  }
+
+  .header__button-burger {
+    display: flex;
+  }
+
+  .header__desktop {
+    display: none;
+  }
+
+  .header__button-exit {
+    margin: 13.4px 13.4px 98.44px;
+  }
+
+  .header__mobile-container {
+    width: calc(320px + (520 - 320) * (100vw - 320px) / (767 - 320));
+  }
+
+  .header__mobile-list {
+    gap: 26px;
+  }
+
+  .header__link_type_auth {
+    font-size: 18px;
+  }
+
+  .header__link_type_profile {
+    font-size: 14px;
+  }
+
+  .header__link_active {
+    border-bottom: 2px solid;
+  }
+}

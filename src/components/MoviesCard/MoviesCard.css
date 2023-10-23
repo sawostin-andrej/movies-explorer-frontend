@@ -1,0 +1,163 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 14px;
+}
+
+.movie__link:hover {
+  cursor: pointer;
+}
+
+.movie:hover > .movie__save-button_type_save {
+  visibility: visible;
+  opacity: 1;
+}
+
+.movie:hover > .movie__save-button_type_delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.movie__image {
+  display: block;
+  border-radius: 7px;
+  object-fit: cover;
+  object-position: center;
+  height: 201px;
+  width: 100%;
+}
+
+.movie__save-button {
+  opacity: 0;
+  visibility: hidden;
+  border: none;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.1;
+  position: absolute;
+  cursor: pointer;
+  right: 14px;
+  top: 14px;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.movie__save-button:first-child {
+  background-image: url(../../images/save3.svg);
+  background-size: 21px 21px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.movie__save-button:hover {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+.movie__save-button_type_saved {
+  visibility: visible;
+  background-image: url(../../images/save3.svg);
+  background-position: center;
+  background-size: 21px 21px;
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  opacity: 1;
+}
+
+.movie__save-button_type_save {
+  background-color: #f9f9f9;
+  width: 72px;
+  height: 21px;
+  border-radius: 30px;
+}
+
+.movie__save-button_type_delete {
+  width: 21px;
+  height: 21px;
+  background-image: url(../../images/d3.svg);
+  background-size: 21px 21px;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.movie__info {
+  box-sizing: border-box;
+  display: flex;
+  gap: 33px;
+}
+
+.movie__name {
+  margin: 0;
+  width: 250px;
+  padding-left: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.movie__container-time {
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  width: 52px;
+  height: 18px;
+  border-radius: 3px;
+  padding: 3px 4px;
+}
+
+.movie__time {
+  margin: 0;
+  color: #a0a0a0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+@media screen and (max-width: 768px) {
+  .movie {
+    gap: 25px;
+  }
+
+  .movie__image {
+    height: 190px;
+  }
+
+  .movie__name {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movie__image {
+    height: 168px;
+  }
+
+  .movie__name {
+    font-size: 12px;
+    width: 240px;
+  }
+
+  .movie__card {
+    gap: 15px;
+  }
+
+  .movie__save-button_type_delete {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .movie__save-button_type_save {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .movie__save-button_type_delete {
+    right: 10px;
+    top: 10px;
+  }
+}
