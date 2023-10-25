@@ -1,5 +1,6 @@
 import React from "react";
 import "./Portfolio.css";
+import photo from "../../images/strelka.svg"
 
 export default function Portfolio() {
   return (
@@ -14,7 +15,7 @@ export default function Portfolio() {
             rel="noreferrer"
           >
             <p className="portfolio__name">Статичный сайт</p>
-            <p className="portfolio__link-cursor">↗</p>
+            <img className="portfolio__link-cursor" src={photo} alt="стрелка"></img>
           </a>
         </li>
         <li className="portfolio__element">
@@ -25,7 +26,7 @@ export default function Portfolio() {
             rel="noreferrer"
           >
             <p className="portfolio__name">Адаптивный сайт</p>
-            <p className="portfolio__link-cursor">↗</p>
+            <img className="portfolio__link-cursor" src={photo} alt="стрелка"></img>
           </a>
         </li>
         <li className="portfolio__element">
@@ -36,7 +37,7 @@ export default function Portfolio() {
             rel="noreferrer"
           >
             <p className="portfolio__name">Одностраничное приложение</p>
-            <p className="portfolio__link-cursor">↗</p>
+            <img className="portfolio__link-cursor" src={photo} alt="стрелка"></img>
           </a>
         </li>
       </ul>

@@ -16,11 +16,12 @@ import {
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
 
   return (
     <div className="page">
       <Routes>
-        <Route path="/" element={<MainPage isLoggedIn={isLoggedIn} />} />
+        <Route path="/" element={<MainPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route
           path="/movies"
           element={

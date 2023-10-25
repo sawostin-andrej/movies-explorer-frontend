@@ -18,7 +18,7 @@ const AuthForm = ({
   return (
     <section className="form">
       <Link className="form__link form__link_type_logo" to="/">
-        <img className="form__logo" src={logo} alt="logo"></img>
+        <img className="form__logo" src={logo} alt="лого"></img>
       </Link>
       <h1 className="form__heading">{title}</h1>
       <Form className="form__auth" onSubmit={onSubmit} name={name}>

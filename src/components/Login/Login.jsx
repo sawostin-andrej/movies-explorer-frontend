@@ -2,7 +2,8 @@ import AuthForm from "../AuthForm/AuthForm.jsx";
 import Input from "../Input/Input.jsx";
 
 export default function Login({ setIsLoggedIn }) {
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     setIsLoggedIn(true);
   };
 

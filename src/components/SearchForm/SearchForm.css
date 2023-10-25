@@ -1,7 +1,7 @@
 .search {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 70px 0;
+  padding: 72px 0;
   max-width: 1140px;
   border-bottom: 1px solid #e8e8e8;
 }
@@ -12,7 +12,7 @@
   align-items: center;
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
   background-color: #fdfdfd;
-  padding: 20px 0 16px 15px;
+  padding: 10px 0 7px 15px;
   gap: 10px;
   width: fit-content;
   border-radius: 9px;
@@ -22,7 +22,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .search__icon {
@@ -31,7 +31,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(../../images/iconlupa.svg);
-  background-size: 34px 34px;
+  padding-left: 10px;
 }
 
 .search__input {
@@ -48,11 +48,11 @@
 
 .search__button {
   box-sizing: border-box;
-  padding: 8px 10.35px;
-  margin: 0 12px 0 21.35px;
+  padding: 8px 14px;
+  margin: 0 8px 0 21px;
   font-size: 11px;
   font-weight: 500;
-  line-height: 1.63;
+  line-height: 1.6;
   background: #000;
   cursor: pointer;
   border: none;
@@ -81,6 +81,10 @@
   line-height: 1.4;
 }
 
+.search__filter-text {
+  line-height: 1px;
+  font-size: 14.5px;
+}
 @media screen and (max-width: 1024px) {
   .search {
     text-align: -webkit-center;
@@ -126,7 +130,7 @@
 
 @media screen and (max-width: 769px) {
   .search {
-    padding: 70px 0 108px;
+    padding: 90px 0 108px;
   }
 }
 

@@ -18,7 +18,7 @@
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 1.3px;
   color: #000000;
   transition: opacity 0.3s;
@@ -133,7 +133,7 @@
   display: flex;
   align-items: center;
   gap: 13px;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 .header__link-container_type_mobile {
@@ -175,7 +175,7 @@
 
 @media screen and (max-width: 768px) {
   .header__container {
-    padding: 18px calc(14px + (30 - 14) * (100vw - 320px) / (767 - 320));
+    padding: 8px calc(14px + (30 - 14) * (100vw - 320px) / (767 - 320));
   }
 
   .header__link {

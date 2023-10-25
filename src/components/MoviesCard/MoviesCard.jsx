@@ -33,7 +33,7 @@ export default function MoviesCard({ image, name, isSave, time }) {
           }
           onClick={handleMovieSaved}
         >
-          Сохранить
+          {isSave && 'Сохранить'}
         </Button>
       )}
       <div className="movie__info">

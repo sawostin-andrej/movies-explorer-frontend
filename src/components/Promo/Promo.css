@@ -39,8 +39,8 @@
 
   .promo__text {
     max-width: calc(300px + (730 - 300) * (100vw - 320px) / (767 - 320));
-    padding-bottom: 37px;
-    font-size: calc(29px + (50 - 29) * (100vw - 320px) / (767 - 320));
-    line-height: 1.26;
+    padding-bottom: 20px;
+    font-size: calc(34px + (50 - 29) * (100vw - 320px) / (767 - 320));
+    line-height: 1.2;
   }
 }
