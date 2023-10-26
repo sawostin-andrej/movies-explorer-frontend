@@ -1,0 +1,127 @@
+.techs {
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+.techs__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+}
+
+.techs__title {
+  letter-spacing: -1px;
+  padding: 100px 0 25px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  border-bottom: 1px solid;
+  margin: 0;
+}
+
+.techs__subtitle {
+  margin: 0;
+  padding: 90px 0 26px;
+  align-self: center;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -2px;
+}
+
+.techs__description {
+  margin: 0;
+  max-width: 500px;
+  text-align: center;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.55px;
+}
+
+.techs__items {
+  padding: 100px 0;
+  display: flex;
+  margin: 0;
+  gap: 10px;
+  list-style-type: none;
+  align-self: center;
+}
+
+.techs__item {
+  background-color: #e8e8e8;
+  width: 90px;
+  padding: 21px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1279px) {
+  .techs__container {
+    max-width: calc(668px + (1140 - 668) * (100vw - 768px) / (1279 - 768));
+  }
+
+  .techs__title {
+    padding: 96px 0 23px;
+  }
+
+  .techs__subtitle {
+    padding: 80px 0 22px;
+  }
+
+  .techs__description {
+    line-height: 1.5;
+    font-size: 12px;
+  }
+
+  .techs__items {
+    padding: 83px 0 90px;
+  }
+
+  .techs__item {
+    width: 84px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs {
+    background-color: #ffffff;
+  }
+
+  .techs__container {
+    max-width: calc(284px + (668 - 284) * (100vw - 320px) / (767 - 320));
+  }
+
+  .techs__title {
+    padding: 47px 0 28px;
+    font-size: 18px;
+  }
+
+  .techs__subtitle {
+    padding: 60px 0 24px;
+    font-size: 30px;
+  }
+
+  .techs__description {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .techs__items {
+    padding: 50px 0 70px;
+    max-width: 178px;
+    flex-wrap: wrap;
+  }
+
+  .techs__item {
+    font-size: 12px;
+    width: 84px;
+  }
+}
