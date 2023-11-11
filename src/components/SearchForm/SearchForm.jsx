@@ -1,32 +1,86 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./SearchForm.css";
-import Input from "../Input/Input";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import Form from "../Form/Form";
-import Button from "../Button/Button";
 
-export default function SearchForm() {
+const SearchForm = ({
+  handleMovies,
+  searchInput,
+  savedMovies,
+  toggleCheckbox,
+  isCheckboxActive,
+}) => {
+  const { pathname } = useLocation();
+
+  const initialValues = {
+    search: "",
+  };
+
+  const validationRules = {
+    search: [
+      {
+        message: "Нужно ввести ключевое слово.",
+      },
+    ],
+  };
+
+  const { values, handleChange, errors, resetForm } = useFormWithValidation(
+    initialValues,
+    validationRules
+  );
+
+  function handleMoviesSubmit(evt) {
+    evt.preventDefault();
+    handleMovies(evt.target.search.value);
+  }
+
+  useEffect(() => {
+    if (pathname === "/saved-movies" && savedMovies.length === 0) {
+      resetForm({ search: "" });
+    } else {
+      resetForm({ search: searchInput });
+    }
+  }, [searchInput, resetForm, pathname, savedMovies]);
+
   return (
     <section className="search" aria-label="поиск фильмов">
-      <Form className="search__form" name="search-form">
+      <form className="search__form" onSubmit={handleMoviesSubmit} noValidate>
         <div className="search__container">
           <div className="search__container-input">
             <div className="search__icon"></div>
-            <Input
-              classNameLabel="search__label"
-              classNameInput="search__input"
-              type="search"
-              name="search-input"
+            <input
+              className="search__input"
+              type="text"
+              name="search"
               placeholder="Фильм"
-              required="required"
+              required
+              minLength="1"
+              value={values.search || ""}
+              onChange={(evt) => {
+                handleChange(evt);
+              }}
             />
-            <Button className="search__button" type="submit" text="Найти" />
+            <button
+              className={`search__button ${
+                savedMovies
+                  ? pathname === "/saved-movies" && savedMovies.length === 0
+                  : ""
+              }`}
+              type="submit"
+            >
+              Найти
+            </button>
           </div>
-          <div className="search__filter">
-            <FilterCheckbox />
-            <p className="search__filter-text">Короткометражки</p>
-          </div>
+          <FilterCheckbox
+            toggleCheckbox={toggleCheckbox}
+            isCheckboxActive={isCheckboxActive}
+          />
         </div>
-      </Form>
+        <p className="search__error">{errors.search || ""}</p>
+      </form>
     </section>
   );
-}
+};
+
+export default SearchForm;

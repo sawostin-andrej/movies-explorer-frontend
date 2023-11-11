@@ -3,7 +3,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({ isLoggedIn }) => {
+export default function Header({ isLoggedIn }) {
   const location = useLocation();
 
   return (
@@ -40,6 +40,4 @@ const Header = ({ isLoggedIn }) => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

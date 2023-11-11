@@ -1,102 +1,111 @@
-import { useLocation } from "react-router-dom";
 import "./MoviesCardList.css";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Preloader from "../Preloader/Preloader";
+import Button from "../Button/Button";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import movieOne from "../../images/movieOne.png";
-import movieTwo from "../../images/movieTwo.png";
-import movieThree from "../../images/movieThree.png";
-import movieFour from "../../images/movieFour.png";
-import movieFive from "../../images/movieFive.png";
-import movieSix from "../../images/movieSix.png";
-import movieSeven from "../../images/movieSeven.png";
-import movieEight from "../../images/movieEight.png";
-import movieNine from "../../images/movieNine.png";
 
-export default function MoviesCardList() {
-  const location = useLocation();
+import {
+  DESKTOP_SCREEN_WIDTH,
+  TABLET_SCREEN_WIDTH,
+  MOBILE_SCREEN_WIDTH,
+} from "../../utils/constants";
+import widthMovies from "../../utils/widthMovies";
+
+export default function MoviesCardList({
+  isLoading,
+  filteredMovies,
+  savedMovies,
+  serverError,
+  handleCardDelete,
+  searchInput,
+  handleCardAdd,
+}) {
+  const { pathname } = useLocation();
+  const [isQuantityMovies, setNumberMovies] = useState("");
+  const movies = filteredMovies.slice(0, isQuantityMovies);
+
+  useEffect(() => {
+    if (pathname === "/movies") {
+      setNumberMovies(widthMovies().cards);
+
+      function resizeWidthMovies() {
+        if (window.innerWidth >= DESKTOP_SCREEN_WIDTH) {
+          setNumberMovies(widthMovies().cards);
+        }
+        if (window.innerWidth < DESKTOP_SCREEN_WIDTH) {
+          setNumberMovies(widthMovies().cards);
+        }
+        if (window.innerWidth < TABLET_SCREEN_WIDTH) {
+          setNumberMovies(widthMovies().cards);
+        }
+        if (window.innerWidth < MOBILE_SCREEN_WIDTH) {
+          setNumberMovies(widthMovies().cards);
+        }
+      }
+      window.addEventListener("resize", resizeWidthMovies);
+      return () => window.removeEventListener("resize", resizeWidthMovies);
+    }
+  }, [pathname, filteredMovies]);
+
+  function handleAddButtonClick() {
+    setNumberMovies(isQuantityMovies + widthMovies().add);
+  }
+
   return (
-    <>
-      {location.pathname === "/movies" && (
-        <section className="movies" aria-label="список фильмов">
-          <ul className="movies__card-list">
-            <MoviesCard
-              image={movieOne}
-              name="33 слова о дизайне"
-              time="1ч17м"
-              isSave={true}
-            />
-            <MoviesCard
-              image={movieTwo}
-              name="Киноальманах «100 лет дизайна»"
-              time="1ч17м"
-              isSave={true}
-            />
-            <MoviesCard
-              image={movieThree}
-              name="В погоне за Бенкси"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieFour}
-              name="Баския: Взрыв реальности"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieFive}
-              name="Бег это свобода"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieSix}
-              name="Книготорговцы"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieSeven}
-              name="Когда я думаю о Германии ночью"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieEight}
-              name="Gimme Danger: История Игги и The Stooges"
-              time="1ч17м"
-              isSave={false}
-            />
-            <MoviesCard
-              image={movieNine}
-              name="Дженис: Маленькая девочка грустит"
-              time="1ч17м"
-              isSave={false}
-            />
-          </ul>
-          <button className="movies__button" type="button">
-            Ещё
-          </button>
-        </section>
-      )}
+    <section className="movies" aria-label="фильмы">
+      <ul className="movies__card-pages">
+        {isLoading ? (
+          <Preloader />
+        ) : pathname === "/movies" && movies.length !== 0 ? (
+          movies.map((movie) => {
+            return (
+              <MoviesCard
+              handleCardAdd={handleCardAdd}
+                savedMovies={savedMovies}
+                movie={movie}
+                key={movie.id}
+              />
+            );
+          })
+        ) : filteredMovies.length !== 0 ? (
+          filteredMovies.map((movie) => {
+            return (
+              <MoviesCard
+                key={movie._id}
+                movie={movie}
+                handleCardDelete={handleCardDelete}
+              />
+            );
+          })
+        ) : serverError ? (
+          <span className="movies__error-card">
+            «Во время запроса произошла ошибка. Возможно, проблема с соединением
+            или сервер недоступен. Подождите немного и попробуйте ещё раз»
+          </span>
+        ) : pathname === "/movies" && searchInput.length === 0 ? (
+          <span className="movies__error-card">
+            «Для получения списка фильмов выполните поиск»
+          </span>
+        ) : pathname === "/movies" ? (
+          <span className="movies__error-card">«Ничего не найдено»</span>
+        ) : (
+          <span className="movies__error-card">«Нет сохраненных фильмов»</span>
+        )}
+      </ul>
 
-      {location.pathname === "/saved-movies" && (
-        <section className="movies" aria-label="сохраненные фильмы">
-          <ul className="movies__card-list">
-            <MoviesCard
-              image={movieOne}
-              name="33 слова о дизайне"
-              time="1ч17м"
-              isSave={true}
-            />
-            <MoviesCard
-              image={movieTwo}
-              name="Киноальманах «100 лет дизайна»"
-              time="1ч17м"
-              isSave={true}
-            />
-          </ul>
-        </section>
+      {pathname === "/movies" && (
+        <Button
+          className={`movies__button ${
+            isQuantityMovies >= filteredMovies.length &&
+            "movies__invisible_button"
+          }`}
+          onClick={handleAddButtonClick}
+          type="button"
+        >
+          Ещё
+        </Button>
       )}
-    </>
+    </section>
   );
 }

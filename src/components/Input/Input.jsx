@@ -1,16 +1,16 @@
 export default function Input({
+  label,
+  classNameLabel,
+  tabIndex,
+  classNameInput,
   type,
   name,
-  placeholder,
-  children,
-  classNameLabel,
-  classNameInput,
-  label,
   value,
-  defaultValue,
   required,
+  placeholder,
+  defaultValue,
+  children,
   disabled,
-  tabIndex,
   onChange,
 }) {
   return (
@@ -20,10 +20,10 @@ export default function Input({
         className={classNameInput}
         type={type}
         name={name}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
         value={value}
         required={required}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
         minLength="2"
         maxLength="30"
         disabled={disabled}

@@ -14,26 +14,48 @@ const AuthForm = ({
   textLink,
   path,
   isLoginForm,
+  isLoading,
+  isValid,
+  isValidLogin,
+  error,
+  errorLogin,
 }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
+  };
+
   return (
     <section className="form">
       <Link className="form__link form__link_type_logo" to="/">
         <img className="form__logo" src={logo} alt="лого"></img>
       </Link>
       <h1 className="form__heading">{title}</h1>
-      <Form className="form__auth" onSubmit={onSubmit} name={name}>
+      <Form
+        className="form__auth"
+        onSubmit={(e) => handleSubmit(e)}
+        name={name}
+      >
         {children}
         <div
           className={`form__container ${
             isLoginForm ? "form__container_type_login" : ""
           }`}
         >
+          <p
+            className={`form__error ${
+              isLoginForm ? "form__error_type_login" : ""
+            }`}
+          >
+            {isLoginForm ? errorLogin : error}
+          </p>
           <Button
             className={`form__button ${
               isLoginForm ? "form__button_type_login" : ""
             }`}
             type="submit"
             text={textButton}
+            disabled={(isLoginForm ? !isValidLogin : !isValid) || isLoading}
           />
           <p className="form__text">
             {textUnderButton}{" "}
