@@ -1,11 +1,9 @@
 import Register from "../components/Register/Register";
 
-function RegisterPage() {
+function RegisterPage({ handleRegister, error, setError, isLoading }) {
   return (
-    <main>
-      <Register />
-    </main>
+      <Register handleRegister={handleRegister} error={error} setError={setError} isLoading={isLoading} />
   );
-}
+};
 
 export default RegisterPage;

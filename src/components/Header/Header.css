@@ -4,7 +4,7 @@
 
 .header__container {
   margin: 0 auto;
-  padding: 16px 71px;
+  padding: 16px 71px 0;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -18,7 +18,7 @@
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.3px;
   color: #000000;
   transition: opacity 0.3s;
@@ -133,7 +133,7 @@
   display: flex;
   align-items: center;
   gap: 13px;
-  padding-left: 40px;
+  padding-left: 33px;
 }
 
 .header__link-container_type_mobile {
@@ -155,7 +155,7 @@
 }
 
 .header__list_type_auth {
-  gap: 20px;
+  gap: 19px;
   align-items: center;
 }
 

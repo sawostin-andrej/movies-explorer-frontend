@@ -1,11 +1,9 @@
 import Login from "../components/Login/Login";
 
-function LoginPage({ setIsLoggedIn }) {
+function LoginPage({ handleLogin, error, setError, isLoading }) {
   return (
-    <main>
-      <Login setIsLoggedIn={setIsLoggedIn} />
-    </main>
+      <Login handleLogin={handleLogin} error={error} setError={setError} isLoading={isLoading} />
   );
-}
+};
 
 export default LoginPage;

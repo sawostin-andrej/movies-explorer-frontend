@@ -1,28 +1,27 @@
 .search {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 96px 0 33px;
   max-width: 1140px;
   border-bottom: 1px solid #e8e8e8;
 }
 
 .search__container {
-  box-sizing: border-box;
   display: flex;
-  align-items: center;
-  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
-  background-color: #fdfdfd;
-  padding: 10px 0 7px 15px;
-  gap: 10px;
+  padding: 10px 0 17px 15px;
   width: fit-content;
+  align-items: center;
+  background-color: #fdfdfd;
+  gap: 10px;
+  box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
   border-radius: 9px;
 }
 
 .search__container-input {
-  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 5px;
+  box-sizing: border-box;
 }
 
 .search__icon {
@@ -35,6 +34,7 @@
 }
 
 .search__input {
+  padding: 0 3px;
   width: 747px;
   border: none;
 }
@@ -65,15 +65,6 @@
   opacity: 0.7;
 }
 
-.search__filter {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding: 11px 31px;
-  gap: 14px;
-  border-left: 1px solid #cbcbcb;
-}
-
 .search__filter-title {
   margin: 0;
   font-size: 13px;
@@ -81,10 +72,11 @@
   line-height: 1.4;
 }
 
-.search__filter-text {
-  line-height: 1px;
-  font-size: 14.5px;
+.search__error {
+  color: red;
+  padding: 5px 0 0 20px;
 }
+
 @media screen and (max-width: 1024px) {
   .search {
     text-align: -webkit-center;
@@ -96,10 +88,6 @@
 
   .search__input {
     width: 334px;
-  }
-
-  .search__filter {
-    padding: 11px 20px 11px 20px;
   }
 }
 
@@ -149,23 +137,17 @@
     align-items: center;
     background-color: transparent;
     border-radius: 0;
-    gap: 0;
     padding: 0;
     gap: 46px;
   }
 
   .search__container-input {
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.08);
     background-color: #fdfdfd;
     padding: 22px;
     border-radius: 9px;
     width: 100%;
     justify-content: space-between;
-  }
-
-  .search__filter {
-    padding: 0;
-    border-left: none;
   }
 
   .search__icon {
@@ -182,11 +164,6 @@
   }
 
   .search__button {
-    margin: 0 0 0 21.35px;
-  }
-
-  .search__filter-text {
-    line-height: 1.6;
-    font-size: 11px;
+    margin: 0 0 0 21px;
   }
 }

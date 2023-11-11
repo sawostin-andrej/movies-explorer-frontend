@@ -1,34 +1,48 @@
-.movie {
+.movies__card {
   display: flex;
   flex-direction: column;
   position: relative;
   gap: 14px;
 }
 
-.movie__link:hover {
+.movies__card:hover > .movies__button-save_type_save {
+  visibility: visible;
+  opacity: 1;
+}
+
+.movies__card:hover > .movies__button-save_type_save:hover {
+  opacity: 0.7;
+}
+
+.movies__card:hover > .movies__button-save_type_delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.movies__card:hover > .movies__button-save_type_delete:hover {
+  opacity: 0.7;
+}
+
+.movies__link:hover {
   cursor: pointer;
 }
 
-.movie:hover > .movie__save-button_type_save {
-  visibility: visible;
-  opacity: 1;
+.movies__link:hover > .movies__image {
+  transform: scale(1.02);
 }
 
-.movie:hover > .movie__save-button_type_delete {
-  opacity: 1;
-  visibility: visible;
-}
-
-.movie__image {
+.movies__image {
   display: block;
   border-radius: 7px;
   object-fit: cover;
   object-position: center;
   height: 201px;
   width: 100%;
+  transition: transform 0.3s;
+  gap: 14px;
 }
 
-.movie__save-button {
+.movies__button-save {
   opacity: 0;
   visibility: hidden;
   border: none;
@@ -44,19 +58,13 @@
   z-index: 1;
 }
 
-.movie__save-button:first-child {
-  background-image: url(../../images/save3.svg);
-  background-size: 21px 21px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.movie__save-button:hover {
+.movies__button-save:hover {
   visibility: visible;
   opacity: 0.7;
+  cursor: pointer;
 }
 
-.movie__save-button_type_saved {
+.movies__button-save_type_saved {
   visibility: visible;
   background-image: url(../../images/save3.svg);
   background-position: center;
@@ -68,14 +76,14 @@
   opacity: 1;
 }
 
-.movie__save-button_type_save {
+.movies__button-save_type_save {
   background-color: #f9f9f9;
   width: 72px;
   height: 21px;
   border-radius: 30px;
 }
 
-.movie__save-button_type_delete {
+.movies__button-save_type_delete {
   width: 21px;
   height: 21px;
   background-image: url(../../images/d3.svg);
@@ -85,22 +93,22 @@
   background-repeat: no-repeat;
 }
 
-.movie__info {
+.movies__container-title {
   box-sizing: border-box;
   display: flex;
   gap: 33px;
 }
 
-.movie__name {
+.movies__title {
   margin: 0;
   width: 250px;
   padding-left: 15px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   line-height: normal;
 }
 
-.movie__container-time {
+.movies__container-time {
   background-color: #f9f9f9;
   box-sizing: border-box;
   width: 52px;
@@ -109,7 +117,7 @@
   padding: 3px 4px;
 }
 
-.movie__time {
+.movies__time {
   margin: 0;
   color: #a0a0a0;
   text-align: center;
@@ -119,44 +127,66 @@
 }
 
 @media screen and (max-width: 768px) {
-  .movie {
+  .movies__card {
     gap: 25px;
   }
 
-  .movie__image {
+  .movies__container-title {
+    padding-top: 25px;
+  }
+
+  .movies__image {
     height: 190px;
   }
 
-  .movie__name {
+  .movies__title {
     padding-left: 0;
+  }
+
+  .movies__button-save_type_delete {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .movies__button-save_type_save {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
-@media screen and (max-width: 320px) {
-  .movie__image {
+@media screen and (max-width: 712px) {
+  .movies__image {
     height: 168px;
   }
 
-  .movie__name {
+  .movies__title {
     font-size: 12px;
     width: 240px;
   }
 
-  .movie__card {
+  .movies__card {
     gap: 15px;
   }
 
-  .movie__save-button_type_delete {
+  .movies__container-title {
+    padding-top: 15px;
+  }
+
+  .movies__button-save {
+    opacity: 1;
+  }
+
+  .movies__button-save_type_delete {
     visibility: visible;
     opacity: 1;
   }
 
-  .movie__save-button_type_save {
-    visibility: visible;
+  .movies__button-save_type_save {
     opacity: 1;
+    visibility: visible;
   }
 
-  .movie__save-button_type_delete {
+  .movies__button-save_type_delete {
     right: 10px;
     top: 10px;
   }

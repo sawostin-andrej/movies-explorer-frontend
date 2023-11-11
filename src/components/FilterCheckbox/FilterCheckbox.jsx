@@ -1,18 +1,21 @@
 import "./FilterCheckbox.css";
-import Input from "../Input/Input";
 
-const FilterCheckbox = () => {
+function FilterCheckbox({ isCheckboxActive, toggleCheckbox }) {
   return (
-    <Input
-      classNameLabel="search__label-switch"
-      classNameInput="search__input-checkbox"
-      type="checkbox"
-      name="search-checkbox"
-      tabIndex="0"
-    >
-      <span className="search__slider"></span>
-    </Input>
+    <div className="filter__checkbox">
+      <label className="filter__toggle">
+        <input
+          className="filter__input"
+          onChange={toggleCheckbox}
+          type="checkbox"
+          id="checkbox"
+          name="checkbox"
+          checked={isCheckboxActive}
+        ></input>
+        <span className="filter__text">Короткометражки</span>
+      </label>
+    </div>
   );
-};
+}
 
 export default FilterCheckbox;

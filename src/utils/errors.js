@@ -1,0 +1,24 @@
+const HTTP_BAD_REQUEST = 400;
+const HTTP_UNAUTHORIZED = 401;
+const HTTP_FORBIDDEN = 403;
+const HTTP_NOT_FOUND = 404;
+const HTTP_CONFLICT = 409;
+const HTTP_SERVER_ERROR = 500;
+const MONGO_DUPLICATE_KEY = 11000;
+
+const HTTP_SERVER_ERROR_TEXT = "На сервере произошла ошибка.";
+const HTTP_UNAUTHORIZED_TEXT = "Неверный логин или пароль.";
+const HTTP_CONFLICT_TEXT = "Такой пользователь уже существует.";
+
+module.exports = {
+  HTTP_BAD_REQUEST,
+  HTTP_UNAUTHORIZED,
+  HTTP_FORBIDDEN,
+  HTTP_NOT_FOUND,
+  HTTP_CONFLICT,
+  HTTP_SERVER_ERROR,
+  MONGO_DUPLICATE_KEY,
+  HTTP_SERVER_ERROR_TEXT,
+  HTTP_UNAUTHORIZED_TEXT,
+  HTTP_CONFLICT_TEXT,
+};
