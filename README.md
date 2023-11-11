@@ -4,4 +4,4 @@
 IP 158.160.1.224
 Backend: [https://api.movies2023.nomoredomainsrocks.ru]
 Frontend: [https://project.mestoyandex.nomoredomainsrocks.ru]
-
+Ссылка на Pull request: [https://github.com/sawostin-andrej/movies-explorer-frontend/pull/2]
